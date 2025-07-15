@@ -1,0 +1,20 @@
+<section class="hero" id="home" style="background-image: url('{{ asset('images/background.png') }}'); background-size: cover; background-position: center;">
+    <div class="hero-content">
+        <div class="hero-left">
+            <div class="hero-photo">
+                <img src="{{ asset('images/BannersPhoto.png') }}" alt="Доброрадных Наталия Станиславовна" id="heroPhoto">
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="hero-logo">
+                <img src="{{ asset('images/logo1.png') }}" alt="Логотип" id="heroLogo">
+            </div>
+            <h1 data-editable="true" data-key="heroTitle">Профессиональное юридическое решение любой сложности</h1>
+            <p data-editable="true" data-key="heroText">Если это можно решить законно — значит, я это сделаю. Решение сложных юридических вопросов. Индивидуальный подход к каждому клиенту.</p>
+            <div class="cta-buttons">
+                <a href="#consultation-form" class="btn btn-primary">Записаться на консультацию</a>
+                <a href="{{ path('app_login') }}" class="btn btn-secondary" id="personalAccountBtn">Личный кабинет</a>
+            </div>
+        </div>
+    </div>
+</section>

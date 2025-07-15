@@ -1,0 +1,92 @@
+<section class="section contact" id="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>Контакты</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Контактная информация</h3>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Адрес:</h4>
+                            <p data-editable="true" data-key="contactAddress">г. Москва, ул. Правовая, д. 15, офис 305</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Телефон:</h4>
+                            <p data-editable="true" data-key="contactPhone">8 921 522 30 11</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email:</h4>
+                            <p data-editable="true" data-key="contactEmail">pns-75@mail.ru</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Часы работы:</h4>
+                            <p data-editable="true" data-key="contactHours">
+                                Понедельник-Пятница: 10:00 - 17:00 (обед 13:00 - 14:00)<br>
+                                Суббота: 10:00 - 13:00<br>
+                                Воскресенье: выходной
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <h3>Социальные сети</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link" data-social="telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-link" data-social="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-link" data-social="vk"><i class="fab fa-vk"></i></a>
+                </div>
+            </div>
+            <div class="contact-form" id="consultation-form">
+                <h3>Запись на консультацию</h3>
+                <form id="consultForm">
+                    <div class="form-group">
+                        <label for="name">Ваше имя*</label>
+                        <input type="text" id="name" name="name" required>
+                        <div class="invalid-feedback" id="nameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон*</label>
+                        <input type="tel" id="phone" name="phone" required>
+                        <div class="invalid-feedback" id="phoneError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                        <div class="invalid-feedback" id="emailError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Интересующая услуга</label>
+                        <select id="service" name="service">
+                            <option value="">-- Выберите услугу --</option>
+                            <option value="civil">Гражданское право</option>
+                            <option value="family">Семейное право</option>
+                            <option value="labor">Трудовое право</option>
+                            <option value="tax">Налоговое право</option>
+                            <option value="corporate">Корпоративное право</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Опишите вашу ситуацию</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.372951920377!2d37.61531071593084!3d55.75202398055309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5a738fa419%3A0x7f3477b4b1c0a8e7!2z0J_QsNGA0LjQtiwg0JzQvtGB0LrQstCw!5e0!3m2!1sru!2sru!4v1620000000000!5m2!1sru!2sru" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Доброрадных Наталия Станиславовна | Юридические услуги!{% endblock %}
+
+{% block body %}
+
+    <div class="edit-mode-indicator" id="editModeIndicator">
+        Режим редактирования
+    </div>
+
+
+    {% include 'main/editorToolbar.html.twig' %}
+
+
+    <button class="admin-toggle" id="adminToggleBtn">
+        <i class="fas fa-cog"></i>
+    </button>
+
+
+    {% include 'main/header.html.twig' %}
+    {% include 'main/heroSection.html.twig' %}
+
+
+    <div class="floating-cta" id="floating-cta">
+        <i class="fas fa-phone-alt"></i>
+    </div>
+
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    {% include 'main/aboutSection.html.twig' %}
+    {% include 'main/servicesSection.html.twig' %}
+    {% include 'main/FAQSection.html.twig' %}
+    {% include 'main/contactSection.html.twig' %}
+    {% include 'main/footer.html.twig' %}
+    {% include 'main/consultationModal.html.twig' %}
+    
+
+
+
+
+
+
+    
+    
+
+{% endblock %}  
