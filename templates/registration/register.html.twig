@@ -15,71 +15,77 @@
                     <div class="auth-tab" data-tab="login"><a href="{{ path('app_login') }}">Вход</a></div>
                     <div class="auth-tab active" data-tab="register"><a href="{{ path('app_register') }}">Регистрация</a></div>
                 </div>
-                
+
                 <div class="auth-content" id="registerContent">
-                    <form class="auth-form" id="registerForm">
-                        <div class="form-group">
-                            <label for="regName">Имя</label>
-                            <input type="text" id="regName" name="name" placeholder="Ваше полное имя" required>
-                            <div class="invalid-feedback" id="regNameError"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="regEmail">Email</label>
-                            <input type="email" id="regEmail" name="email" placeholder="Введите ваш email" required>
-                            <div class="invalid-feedback" id="regEmailError"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="regPhone">Телефон</label>
-                            <input type="tel" id="regPhone" name="phone" placeholder="+7 (___) ___-____" required>
-                            <div class="invalid-feedback" id="regPhoneError"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="regPassword">Пароль</label>
-                            <input type="password" id="regPassword" name="password" placeholder="Не менее 6 символов" required>
-                            <div class="invalid-feedback" id="regPasswordError"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="regConfirmPassword">Подтвердите пароль</label>
-                            <input type="password" id="regConfirmPassword" name="confirmPassword" placeholder="Повторите пароль" required>
-                            <div class="invalid-feedback" id="regConfirmPasswordError"></div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
-                        <div class="form-footer">
-                            Уже есть аккаунт? <a href="{{ path('app_register') }}" class="switch-to-login">Войдите</a>
-                        </div>
-                    </form>
 
+                    {{ form_start(registrationForm, {'attr': {'class': 'auth-form', 'id': 'registerForm'}} ) }}
 
+                    {{ form_errors(registrationForm) }}
 
-                        {% for flash_error in app.flashes('verify_email_error') %}
-                            <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-                        {% endfor %}
+                    <div class="form-group">
+                        {{ form_label(registrationForm.name, null, {'attr': {'for': 'regName'}}) }}
+                        {{ form_widget(registrationForm.name, {
+                            'attr': {
+                                'id': 'regName',
+                                'name': 'name',
+                                'class': 'form-control',
+                            }
+                        }) }}
+                    </div>
 
-                        {{ form_errors(registrationForm) }}
+                    <div class="form-group">
+                        {{ form_label(registrationForm.email, null, {'attr': {'for': 'regEmail'}}) }}
+                        {{ form_widget(registrationForm.email, {
+                            'attr': {
+                                'id': 'regEmail',
+                                'name': 'email',
+                                'class': 'form-control',
+                            }
+                        }) }}
+                    </div>
 
-                        {{ form_start(registrationForm) }}
-                            {{ form_row(registrationForm.email) }}
-                             {{ form_row(registrationForm.plainPassword, {
-                                label: 'Password'
-                            }) }}
-                            {# {{ form_row(registrationForm.plainPassword, {
-                                label: 'Password'
-                            }) }} #}
-                            {# {{ form_row(registrationForm.agreeTerms) }} #}
+                    <div class="form-group">
+                        {{ form_label(registrationForm.phone, null, {'attr': {'for': 'regPhone'}}) }}
+                        {{ form_widget(registrationForm.phone, {
+                            'attr': {
+                                'id': 'regPhone',
+                                'name': 'phone',
+                                'class': 'form-control phone-input',
+                            }
+                        }) }}
+                    </div>
 
-                            <button type="submit" class="btn">Register</button>
-                        {{ form_end(registrationForm) }}
+                    <div class="form-group">
+                        {{ form_label(registrationForm.plainPassword, null, {'attr': {'for': 'regPassword'}}) }}
+                        {{ form_widget(registrationForm.plainPassword, {
+                            'attr': {
+                                'id': 'regPassword',
+                                'name': 'password',
+                                'class': 'form-control',
+                            }
+                        }) }}
+                    </div>
 
+                    <div class="form-group">
+                        {{ form_label(registrationForm.confirmPassword, null, {'attr': {'for': 'regConfirmPassword'}}) }}
+                        {{ form_widget(registrationForm.confirmPassword, {
+                            'attr': {
+                                'id': 'regConfirmPassword',
+                                'name': 'confirmPassword',
+                                'class': 'form-control',
+                            }
+                        }) }}
+                    </div>
 
+                    <div class="form-group">
+                        {{ form_widget(registrationForm.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+                    </div>
 
+                    <div class="form-footer">
+                        Уже есть аккаунт? <a href="{{ path('app_register') }}" class="switch-to-login">Войдите</a>
+                    </div>
 
-
-
-
-
-
-
-
+                    {{ form_end(registrationForm) }}
 
 
                 </div>

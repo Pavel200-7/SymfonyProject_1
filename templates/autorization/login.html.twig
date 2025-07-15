@@ -15,8 +15,10 @@
                     <div class="auth-tab active" data-tab="login"><a href="{{ path('app_login') }}">Вход</a></div>
                     <div class="auth-tab" data-tab="register"><a href="{{ path('app_register') }}">Регистрация</a></div>
                 </div>
-                
+
                 <div class="auth-content active" id="loginContent">
+
+
                     <form method="post" class="auth-form" id="loginForm">
                         {% if error %}
                             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -24,7 +26,7 @@
 
                         {% if app.user %}
                             <div class="mb-3">
-                                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                                Вы авторизованы как {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Выйти</a>
                             </div>
                         {% endif %}
 
@@ -40,7 +42,7 @@
                             </div>
 
 
-                           
+
                             <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
 
                         <button class="btn btn-lg btn-primary" type="submit">
@@ -58,8 +60,8 @@
 
 
 
-    
-    
+
+
 {% endblock %}
 
 {# {% block importmap %}
