@@ -36,15 +36,12 @@
     {% include 'main/FAQSection.html.twig' %}
     {% include 'main/contactSection.html.twig' %}
     {% include 'main/footer.html.twig' %}
-    {% include 'main/consultationModal.html.twig' %}
-    
-
-
-
-
-
-
-    
-    
+    {# {% include 'main/consultationModal.html.twig' %} #}
 
 {% endblock %}  
+
+{% block importmap %}
+    {{ parent() }}
+     <script type="module" src="{{ asset('js/main.js') }}"></script>
+
+{% endblock %}

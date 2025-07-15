@@ -4,51 +4,101 @@
 
 {% block body %}
 
-        <form method="post">
-        {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
-
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Личный кабинет</h3>
+                <span class="close-modal">&times;</span>
             </div>
-        {% endif %}
+            <div class="modal-body">
+                <div class="auth-tabs">
+                    <div class="auth-tab" data-tab="login"><a href="{{ path('app_login') }}">Вход</a></div>
+                    <div class="auth-tab active" data-tab="register"><a href="{{ path('app_register') }}">Регистрация</a></div>
+                </div>
+                
+                <div class="auth-content" id="registerContent">
+                    <form class="auth-form" id="registerForm">
+                        <div class="form-group">
+                            <label for="regName">Имя</label>
+                            <input type="text" id="regName" name="name" placeholder="Ваше полное имя" required>
+                            <div class="invalid-feedback" id="regNameError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="regEmail">Email</label>
+                            <input type="email" id="regEmail" name="email" placeholder="Введите ваш email" required>
+                            <div class="invalid-feedback" id="regEmailError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="regPhone">Телефон</label>
+                            <input type="tel" id="regPhone" name="phone" placeholder="+7 (___) ___-____" required>
+                            <div class="invalid-feedback" id="regPhoneError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="regPassword">Пароль</label>
+                            <input type="password" id="regPassword" name="password" placeholder="Не менее 6 символов" required>
+                            <div class="invalid-feedback" id="regPasswordError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="regConfirmPassword">Подтвердите пароль</label>
+                            <input type="password" id="regConfirmPassword" name="confirmPassword" placeholder="Повторите пароль" required>
+                            <div class="invalid-feedback" id="regConfirmPasswordError"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                        <div class="form-footer">
+                            Уже есть аккаунт? <a href="{{ path('app_register') }}" class="switch-to-login">Войдите</a>
+                        </div>
+                    </form>
 
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="username">Email</label>
-        <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
-        <label for="password">Password</label>
-        <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
-        <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
 
-        {#
-            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-            See https://symfony.com/doc/current/security/remember_me.html
 
-            <div class="checkbox mb-3">
-                <input type="checkbox" name="_remember_me" id="_remember_me">
-                <label for="_remember_me">Remember me</label>
+                        {% for flash_error in app.flashes('verify_email_error') %}
+                            <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+                        {% endfor %}
+
+                        {{ form_errors(registrationForm) }}
+
+                        {{ form_start(registrationForm) }}
+                            {{ form_row(registrationForm.email) }}
+                             {{ form_row(registrationForm.plainPassword, {
+                                label: 'Password'
+                            }) }}
+                            {# {{ form_row(registrationForm.plainPassword, {
+                                label: 'Password'
+                            }) }} #}
+                            {# {{ form_row(registrationForm.agreeTerms) }} #}
+
+                            <button type="submit" class="btn">Register</button>
+                        {{ form_end(registrationForm) }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
             </div>
-        #}
+        </div>
+    </div>
 
-        <button class="btn btn-lg btn-primary" type="submit">
-            Sign in
-        </button>
-    </form>
 
-    
-    <h1>Register</h1>
 
-    {{ form_errors(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+{% endblock %}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+{% block importmap %}
+    {{ parent() }}
+     <script type="module" src="{{ asset('js/registration.js') }}"></script>
+
+
+    {# <script>
+        alert("Эх, фронтэнд, как же я тебя... ненавижу.");
+    </script> #}
+
 {% endblock %}

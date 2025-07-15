@@ -793,7 +793,7 @@ footer {
 
 /* Modal */
 .modal {
-    display: none;
+    /* display: none; */
     position: fixed;
     top: 0;
     left: 0;
@@ -1762,7 +1762,7 @@ input:checked + .slider:before {
 }
 
 .auth-content {
-    display: none;
+    /* display: none; */
     animation: fadeIn 0.3s;
 }
 
